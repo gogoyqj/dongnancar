@@ -1,0 +1,28 @@
+{include file="common/common.html"}
+<!DOCTYPE>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>
+			东南汽车{block name="title"}{/block}-梁平经销
+		</title>
+		<link rel="stylesheet" href="{$static_dir}css/main.css" type="text/css">
+	</head>
+	<body>
+		<div id="container">
+			<div class="dongnanindex">
+				{include file="common/header.html"}
+				{block name="content"}{/block}
+				{include file="common/footer.html"}
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="{$static_dir}script/nav.js"></script>
+<script type="text/javascript" src="{$static_dir}script/nav2.js"></script>
+<script type="text/javascript" src="{$static_dir}script/nav3.js"></script>
+<script type="text/javascript" src="{$static_dir}script/jquery.min.js"></script>
+{block name="head"}{/block}
+<script text="text/javascript">
+	{block name="script"}{/block}
+</script>

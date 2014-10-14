@@ -1,0 +1,40 @@
+{extends file="common/layout.html"}
+
+{block name="head"}
+	<script type="text/javascript" src="{$static_dir}script/swfobject.js"></script>
+{/block}
+
+{block name="content"}
+	{call name="slider"}
+	<div class="dongnanindex">
+		<div class="index_list">
+			{call name="links"}
+			{call name="intrs"}
+			{call name="news"}
+		</div>
+	</div>
+{/block}
+
+{block name="script"}
+	var xmlData = "<list><item><img>{$static_dir}img/4691381742506.jpg</img><url></url></item><item><img>{$static_dir}img/4691381742506.jpg</img><url></url></item></list>";
+	var flashvars = {
+		xmlData: xmlData
+	};
+	var params = {
+		menu: false,
+		wmode: "opaque"
+	};
+	var attributes = {};
+	swfobject.embedSWF("{$static_dir}/img/player.swf?__stamp__", "slider", "1000", "424", "9", "expressInstall.swf", flashvars, params, attributes);
+	$("div#ppt").find("img").each(function() {
+		$(this).css('opacity', '1.0')
+	}).hover(function() {
+		$(this).animate({
+			opacity: 0.5
+		})
+	}, function() {
+		$(this).animate({
+			opacity: 1.0
+		})
+	})
+{/block}

@@ -1,0 +1,4 @@
+App/Runtime/Cache/*.php
+App/Runtime/Logs/Home/*.log
+App/Runtime/Temp/*.tmp
+App/Runtime/Data/*.data
