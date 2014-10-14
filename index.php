@@ -22,8 +22,6 @@ define('APP_NAME', 'App');
 //定义项目路径
 define('APP_PATH', './App/');
 
-define('STATIC_DIR', 'public/static/');
-
 //加载框架入文件
 require './ThinkPHP/ThinkPHP.php';
 

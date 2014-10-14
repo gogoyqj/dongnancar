@@ -2,3 +2,7 @@ App/Runtime/Cache/*.php
 App/Runtime/Logs/Home/*.log
 App/Runtime/Temp/*.tmp
 App/Runtime/Data/*.data
+Runtime/Cache/*.php
+Runtime/Logs/Home/*.log
+Runtime/Temp/*.tmp
+Runtime/Data/*.data

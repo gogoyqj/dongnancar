@@ -9,7 +9,7 @@ class IndexController extends Controller {
     }
     
     function __destruct() {
-    	$this -> assign("static_dir", STATIC_DIR);
+    	$this -> assign("static_dir", C("STATIC_DIR"));
     	$this -> display();
     }
 }
