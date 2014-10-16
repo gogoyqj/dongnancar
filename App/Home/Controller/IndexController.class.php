@@ -2,6 +2,11 @@
 namespace Home\Controller;
 use Think\Controller;
 class IndexController extends Controller {
+
+	public function _empty() {
+		$this -> index();
+	}
+
     public function index(){
     }
 
@@ -9,7 +14,7 @@ class IndexController extends Controller {
     }
     
     function __destruct() {
-    	$this -> assign("static_dir", C("STATIC_DIR"));
-    	$this -> display();
+        $this -> assign("static_dir", C("STATIC_DIR"));
+        $this -> display();
     }
 }

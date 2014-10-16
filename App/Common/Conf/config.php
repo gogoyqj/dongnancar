@@ -1,7 +1,7 @@
 <?php
 return array(
 	//'配置项'=>'配置值'
-	'DB_DSN' => 'mysql://car:car@localhost:3306/newcar',
+	'DB_DSN' => 'mysql://root:@127.0.0.1:3306/newcar',
 	//使用smarty
 	'TMPL_ENGINE_TYPE' => 'Smarty',
 	'TMPL_ENGINE_CONFIG' => array(

@@ -1,8 +1,8 @@
-App/Runtime/Cache/*.php
-App/Runtime/Logs/Home/*.log
-App/Runtime/Temp/*.tmp
-App/Runtime/Data/*.data
-Runtime/Cache/*.php
-Runtime/Logs/Home/*.log
-Runtime/Temp/*.tmp
-Runtime/Data/*.data
+App/Runtime/Cache/*
+App/Runtime/Logs/*
+App/Runtime/Temp/*
+App/Runtime/Data/*
+Runtime/Cache/*
+Runtime/Logs/*
+Runtime/Temp/*
+Runtime/Data/*
