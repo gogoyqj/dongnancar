@@ -8,7 +8,7 @@
 			array('id', 'number', '无效id'),
 			array('cateid', 'number', '无效分类id', 1),
 			array('author', 'require', '操作者不能为空', 1),
-			array('index', 'number', '操作者不能为空'),
+			array('rank', 'number', '排序位置错误'),
 			array('state', 'number', '无效状态'),
 		);
 

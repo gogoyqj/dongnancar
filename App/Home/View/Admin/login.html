@@ -1,0 +1,32 @@
+{extends file='Admin/layout.html'}
+{block name='content'}
+<div class="container">
+	<form class="admin-login form-horizontal" action="login" method="post">
+	 	<fieldset>
+        	<legend>管理员登录</legend>
+        	{if $error}<p class="error">{$error}</p>{/if}
+            <div class="control-group">
+                <label class="control-label" for="inputEmail">用户名</label>
+                <div class="controls">
+                    <input type="text" name="username" id="inputEmail" placeholder="请输入用户名">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputPassword">密<span style="margin-left:14px;"></span>码</label>
+                <div class="controls">
+                	<input type="password" name="password" id="inputPassword" placeholder="请输入密码">
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <label class="checkbox">
+                    	<input type="checkbox" name="remember">保持登录状态
+                    </label>
+                    <button type="submit" class="btn">登录</button>
+                    {$__TOKEN__}
+                </div>
+            </div>
+        </fieldset>
+	</form>
+</div>
+{/block}

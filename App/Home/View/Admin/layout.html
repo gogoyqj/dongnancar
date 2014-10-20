@@ -1,0 +1,31 @@
+{include file="common/common.html"}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			{$brand}{block name="title"}{/block}-{$company}
+		</title>
+		<link rel="stylesheet" href="{$static_dir}/bootstrap/css/bootstrap.min.css?__stamp__">
+		<link rel="stylesheet" href="{$static_dir}/bootstrap/css/style.css?__stamp__">
+		{block name="head"}{/block}
+	</head>
+	<body>
+		{block name="content"}
+		{/block}
+		{include file="common/footer.html"}
+	</body>
+</html>
+<script type="text/javascript" src="{$static_dir}script/jquery.min.js"></script>
+<script type="text/javascript" src="{$static_dir}/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{$static_dir}script/avalon.js"></script>
+<script type="text/javascript">
+{literal}
+	avalon.config({loader: false})
+{/literal}
+</script>
+{block name="foot"}{/block}
+<script text="text/javascript">
+	{block name="script"}{/block}
+</script>

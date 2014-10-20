@@ -4,9 +4,10 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>
-			东南汽车{block name="title"}{/block}-梁平经销
+			{$brand}{block name="title"}{/block}-{$company}
 		</title>
-		<link rel="stylesheet" href="{$static_dir}css/main.css" type="text/css">
+		<link rel="stylesheet" href="{$static_dir}css/main.css?__stamp__" type="text/css">
+		{block name="head"}{/block}
 	</head>
 	<body>
 		<div id="container">
@@ -22,7 +23,7 @@
 <script type="text/javascript" src="{$static_dir}script/nav2.js"></script>
 <script type="text/javascript" src="{$static_dir}script/nav3.js"></script>
 <script type="text/javascript" src="{$static_dir}script/jquery.min.js"></script>
-{block name="head"}{/block}
+{block name="foot"}{/block}
 <script text="text/javascript">
 	{block name="script"}{/block}
 </script>

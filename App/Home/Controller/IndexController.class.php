@@ -1,7 +1,11 @@
 <?php
 namespace Home\Controller;
-use Think\Controller;
-class IndexController extends Controller {
+
+class IndexController extends \Home\Common\BaseController {
+
+    function __contruct() {
+        parent::__construct();
+    }
 
 	public function _empty() {
 		$this -> index();
@@ -14,7 +18,6 @@ class IndexController extends Controller {
     }
     
     function __destruct() {
-        $this -> assign("static_dir", C("STATIC_DIR"));
-        $this -> display();
+        parent::__destruct();
     }
 }

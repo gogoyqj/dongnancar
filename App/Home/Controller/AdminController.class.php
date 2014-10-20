@@ -1,52 +1,72 @@
 <?php
 	namespace Home\Controller;
-	use Think\Controller;
 
-	class UserController extends UserController {
-		protected $userType = 'admin';
+	class AdminController extends UserController {
 		protected $adminModel;
 		protected $userModel;
 		protected $cateModel;
 		protected $subsModel;
 
 		function __construct() {
-
-			if($this->getLoginStatus() !== 'admin') {
-				return $this->LoginPage();
+			parent::__construct();
+			if(!$this->userInfo && $this->page != 'login') {
+				$this->redirect('/Home/Admin/login/');
+			} else {
+				$this->adminModel = new \Home\Model\AdminModel;
+				$this->cateModel  = new \Home\Model\CatesModel;
+				$this->subsModel  = new \Home\Model\SubsModel;
 			}
+		}
 
-			$this->adminModel = new Home\Model\AdminModel;
-			$this->userModel  = new Home\Model\UserModel;
-			$this->cateModel  = new Home\Model\CatesModel;
-			$this->subsModel  = new Home\Model\subsModel;
+		// 登陆
+		public function login()
+		{
+
+			if(!$this->adminModel->autoCheckToken($_POST)) {
+				$this->onError(900);
+			} else {
+				$data = $this->adminModel->field('username,password')->create();
+				// var_dump($data);
+				// var_dump($this->adminModel->error);
+				if(!isset($_POST['username'])) {
+					$this->onError(100);
+				} else if(!isset($_POST['password'])) {
+					$this->onError(110);
+				}
+			}
 		}
 
 		public function index()
 		{
-			
 		}
 
 		### 操作用户
-		public function addUser() {
+		public function addUser() 
+		{
 		}
 
-		public function changeUser() {
+		public function changeUser() 
+		{
 		}
 
-		public function deleteUser() {
+		public function deleteUser() 
+		{
 
 		}
 
 		### 操作管理员
-		public function addAdmin() {
+		public function addAdmin() 
+		{
 
 		}
 
-		public function changeAdmin() {
+		public function changeAdmin() 
+		{
 
 		}
 
-		public function deleleAdmin() {
+		public function deleleAdmin() 
+		{
 
 		}
 
@@ -66,13 +86,14 @@
 			# code...
 		}
 
-		public function sortCate() {
+		public function sortCate() 
+		{
 
 		}
 
 
 		// 进入最后逻辑
-		function __contruct() {
-
+		function __destruct() {
+			parent::__destruct();
 		}
 	} 
