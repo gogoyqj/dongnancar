@@ -10,6 +10,16 @@ class CatesModel extends Model {
 		array('link', 'url', '无效链接地址'),
 	);
 
+	public function getValidate($name="")
+	{
+		if($name) {
+			foreach ($this->_validate as $key => $value) {
+				if($value[0] == $name) return $value;
+			}
+		}
+		return false;
+	}
+
 	public function getList($map=array()) {
 		return $this->where($map)->select();
 	}

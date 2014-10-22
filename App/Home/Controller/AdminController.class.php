@@ -6,11 +6,12 @@
 		protected $userModel;
 		protected $cateModel;
 		protected $subsModel;
+		protected $usertype = 'admin';
 
 		function __construct() {
 			parent::__construct();
 			if(!$this->userInfo && $this->page != 'login') {
-				$this->redirect('/Home/Admin/login/');
+				redirect('login');
 			} else {
 				$this->adminModel = new \Home\Model\AdminModel;
 				$this->cateModel  = new \Home\Model\CatesModel;
@@ -18,22 +19,9 @@
 			}
 		}
 
-		// 登陆
-		public function login()
+		protected function before_login()
 		{
-
-			if(!$this->adminModel->autoCheckToken($_POST)) {
-				$this->onError(900);
-			} else {
-				$data = $this->adminModel->field('username,password')->create();
-				// var_dump($data);
-				// var_dump($this->adminModel->error);
-				if(!isset($_POST['username'])) {
-					$this->onError(100);
-				} else if(!isset($_POST['password'])) {
-					$this->onError(110);
-				}
-			}
+			$this->infoModel = $this->adminModel;
 		}
 
 		public function index()

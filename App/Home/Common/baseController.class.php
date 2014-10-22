@@ -5,6 +5,7 @@ class BaseController extends Controller {
 	protected $ajax = false;// 是否输出ajax
 	protected $res = array();// 数据数组
 	protected $page = ACTION_NAME;// action name
+	protected $isPost = IS_POST;//is post
 	protected $errorNum = 0;
 	function __contruct() 
 	{

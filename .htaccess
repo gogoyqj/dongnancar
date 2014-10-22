@@ -5,4 +5,6 @@
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+  ##RewriteRule /car2/Home/(.*)$ /car2/index.php/Home/$1 [QSA,PT,L,NC]
+  ##RewriteRule !/car2/(home|public)/(.*)$ /car2/index.php/Home/ [QSA,PT,L,NC]
 </IfModule>
