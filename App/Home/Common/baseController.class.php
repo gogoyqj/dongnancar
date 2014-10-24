@@ -7,6 +7,7 @@ class BaseController extends Controller {
 	protected $page = ACTION_NAME;// action name
 	protected $isPost = IS_POST;//is post
 	protected $errorNum = 0;
+	protected $redirectUrl = '';
 	function __contruct() 
 	{
 		parent::__contruct();
@@ -17,6 +18,16 @@ class BaseController extends Controller {
 		if($key) {
 			$this->res[$key] = $value;
 			parent::assign($key, $value);
+		}
+	}
+
+	// 跳转到首页
+	public function _empty()
+	{
+		if($this->ajax) {
+			$this->onError(404);
+		} else {
+			redirect(U('/Home/index'));
 		}
 	}
 
@@ -35,6 +46,7 @@ class BaseController extends Controller {
 		$this->assign('brand', C('brand'));
 		$this->assign('company', C('company'));
 		$this->assign('year', date('Y'));
+		$this->assign('page', $this->page);
 		if($this->ajax) {
 			$this->ajaxReturn($this->res);
 		} else {

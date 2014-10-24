@@ -18,14 +18,26 @@
 	</body>
 </html>
 <script type="text/javascript" src="{$static_dir}script/jquery.min.js"></script>
+<script type="text/javascript" src="{$static_dir}/script/require.js"></script>
 <script type="text/javascript" src="{$static_dir}/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="{$static_dir}script/avalon.js"></script>
 <script type="text/javascript">
 {literal}
-	avalon.config({loader: false})
+	avalon.config({
+		loader: false,
+		interpolate: ["%-","-%"]
+	})
 {/literal}
 </script>
 {block name="foot"}{/block}
 <script text="text/javascript">
 	{block name="script"}{/block}
+	require.config({
+		baseUrl:"{$static_dir}/script/",
+		urlArgs:"t=__stamp__"
+	});
+	require(['main'] , function(main){
+		main.common && main.common();
+		main['{$page}'] && main['{$page}']();
+	});
 </script>

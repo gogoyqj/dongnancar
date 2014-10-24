@@ -7,10 +7,6 @@ class IndexController extends \Home\Common\BaseController {
         parent::__construct();
     }
 
-	public function _empty() {
-		$this -> index();
-	}
-
     public function index(){
     }
 

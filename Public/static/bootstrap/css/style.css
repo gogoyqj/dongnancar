@@ -90,3 +90,6 @@ body {
     color: red;
     text-align: center;
 }
+.admin-row{
+  background: #FFF; -webkit-border-radius: 2px; min-height:400px;   height: 100%; overflow: auto
+}
