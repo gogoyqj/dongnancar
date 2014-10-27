@@ -33,6 +33,11 @@ class CatesModel extends Model {
 		}
 	}
 
+	public function getError()
+	{
+		return $this->error;
+	}
+
 	public function add($data='', $cmd='add')
 	{
 		$err = array('msg' => '无效数据');

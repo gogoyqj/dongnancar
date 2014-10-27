@@ -17,6 +17,7 @@
 			$this->pwdCookie = C('PWDCOOKIE');
 			$this->infoCookie = C('INFOCOOKIE');
 			$this->initUser();
+			if(I('post.ajax') || I('get.ajax')) $this->ajax = true;
 			$this->userModel = new \Home\Model\UserModel;
 		}
 

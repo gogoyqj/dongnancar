@@ -48,6 +48,7 @@ class BaseController extends Controller {
 		$this->assign('year', date('Y'));
 		$this->assign('page', $this->page);
 		if($this->ajax) {
+			echo __TOKEN__;
 			$this->ajaxReturn($this->res);
 		} else {
 			$this->assign("static_dir", C("STATIC_DIR"));

@@ -8,7 +8,8 @@
             <li 
                 ms-repeat-item="menu"
                 ms-class="active:item[1]==view" 
-                ms-click="viewTo($event, item[1])"><a href="#"><i class="icon-home" 
+                ms-if-loop="$index<3"
+                ms-click="viewTo($event, item[1], $index)"><a href="#"><i class="icon-arrow-right" 
                     ms-class="icon-white:view==item[1]"></i> 
                 %-item[0]-%管理
             </a></li>
@@ -18,14 +19,69 @@
     <div id="view">
         <div class="xrow">
             <ul id="addressbar" class="breadcrumb">
-                管理员<a href="{$editUrl|escape}">{$user.username|escape}</a>在线
+                管理员<a href="##">{$user.username|escape}</a>在线
             </ul>
         </div>
-        <div class="xrow admin-row"> 
+        <div class="xrow admin-row">
+            <div class="btn-group">
+                <!-- <a href="##"
+                    ms-repeat-item="action" class="btn">%-dict[item]-%%-nowData[0]-%%-item=="change"?"信息":""-%</a> -->
+            </div>
+            <!--sort list-->
+            <ul class="item-list" 
+                ms-if="view=='cates'">
+                <li 
+                    ms-repeat-item="catesModelList">
+                    %-item.title-%
+                </li>
+            </ul>
+            <!--show list-->
+            <ul class="user-list" 
+                ms-if="view=='admin'||view=='user'"
+                ms-visible="!subView||subView=='index'">
+                <li 
+                    ms-repeat-item="adminModelList">
+                    <span>%-item.name||item.username-%</span><span class="space"></span>
+                    <a href="##" 
+                       ms-click="edit($event, item)">编辑</a><span class="space"></span>
+                    <a href="##" 
+                       ms-click="_delete($event, item)">删除</a>
+                </li>
+            </ul>
+            <form class="form-horizontal"
+                  ms-on-submit="add($event)" 
+                  ms-controller="catesAddModel">
+                <fieldset>
+                <legend>新增项目</legend>
+                {if $error}<p class="error">{$error}</p>{/if}
+                <div class="control-group" 
+                     ms-repeat-item="keys" 
+                     ms-visible="item!=='id'&&item!=='state'">
+                    <label class="control-label" for="inputEmail">%-loadCN(item)-%</label>
+                    <div class="controls">
+                        <input type="text" name="username" id="inputEmail" autocomplete="off" 
+                               ms-attr-placeholder="'请输入'+loadCN(item)" 
+                               ms-duplex="addModel[item]">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <button type="submit" class="btn">添加</button>
+                    </div>
+                </div>
+            </form>
+            <div 
+                 ms-visible="subView=='edit'||subView=='add'">
+
+            </div>
         </div>
     </div>
 </div>
 {/block}
 {block name="script"}
-    window.MenuData = {$menu};
+    window.ajaxUrl = "{$ajaxUrl}";
+    window.MenuData = {$menu|json_encode};
+    window.allModel = {$allModel|json_encode};
+    window.dict = {$dict|json_encode};
+    window.state = {$state|json_encode};
 {/block}

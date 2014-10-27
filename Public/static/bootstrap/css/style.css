@@ -8,17 +8,16 @@
   position: relative;
 }
 #view{
-  float: left;
-  position: absolute;
-  left: 210px;
-  right: 10px;
+  margin-left: 195px;
   top: 0;
   bottom: 50px;
 }
 body {
   background-image: url('../images/all_bg.jpg?__stamp__')
 }
-
+.space{
+  margin-left: 20px;
+}
 .files {
   padding: 0;
   margin: 0;
@@ -92,4 +91,8 @@ body {
 }
 .admin-row{
   background: #FFF; -webkit-border-radius: 2px; min-height:400px;   height: 100%; overflow: auto
+}
+#view form{
+  margin: 20px;
+  width: auto;
 }
